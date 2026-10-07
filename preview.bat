@@ -1,0 +1,3 @@
+@echo off
+echo Starting portfolio preview...
+start "" "index.html"
