@@ -564,10 +564,23 @@ button {
   max-width: 440px;
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  /* NOTE: no `overflow: hidden` here — the overlay card is positioned at
+     bottom/left: -1.5rem on purpose, and clipping at this level cut ~31% of it
+     off. The image is clipped by .portrait-media instead, so the card can
+     overhang the frame as intended. */
   border: 1px solid var(--border-medium);
   background: var(--bg-surface-elevated);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Clips only the photograph: keeps the image zoom inside the rounded corners
+   while letting .portrait-overlay-card spill outside the frame. */
+.portrait-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: calc(var(--radius-lg) - 1px);
+  overflow: hidden;
 }
 
 .portrait-img {

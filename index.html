@@ -41,8 +41,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
 
-  <!-- Preload the LCP image -->
-  <link rel="preload" as="image" href="assets/images/portrait-575.avif" type="image/avif" fetchpriority="high">
+  <!-- Preload the LCP image. imagesrcset/imagesizes mirror the <picture> below
+       so HiDPI displays preload the 2x candidate rather than the 1x. -->
+  <link rel="preload" as="image" href="assets/images/portrait-460.avif" type="image/avif"
+        imagesrcset="assets/images/portrait-460.avif 1x, assets/images/portrait-920.avif 2x"
+        imagesizes="(max-width: 1024px) 380px, 440px" fetchpriority="high">
 
   <link rel="stylesheet" href="style.css">
 
@@ -210,12 +213,16 @@
 
           <div class="hero-visual-wrapper">
             <div class="portrait-frame">
-              <picture>
-                <source srcset="assets/images/portrait-575.avif" type="image/avif">
-                <source srcset="assets/images/portrait-575.webp" type="image/webp">
-                <img src="assets/images/portrait.jpg" alt="Portrait of Abhi Jha" class="portrait-img" id="heroPortrait"
-                     width="575" height="766" fetchpriority="high" decoding="async">
-              </picture>
+              <div class="portrait-media">
+                <picture>
+                  <source srcset="assets/images/portrait-460.avif 1x, assets/images/portrait-920.avif 2x"
+                          sizes="(max-width: 1024px) 380px, 440px" type="image/avif">
+                  <source srcset="assets/images/portrait-460.webp 1x, assets/images/portrait-920.webp 2x"
+                          sizes="(max-width: 1024px) 380px, 440px" type="image/webp">
+                  <img src="assets/images/portrait.jpg" alt="Portrait of Abhi Jha" class="portrait-img" id="heroPortrait"
+                       width="460" height="575" fetchpriority="high" decoding="async">
+                </picture>
+              </div>
               <div class="portrait-corner-decor">AI_SEC // CYBER_CELL</div>
 
               <div class="portrait-overlay-card">
