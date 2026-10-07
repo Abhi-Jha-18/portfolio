@@ -43,8 +43,8 @@
 
   <!-- Preload the LCP image. imagesrcset/imagesizes mirror the <picture> below
        so HiDPI displays preload the 2x candidate rather than the 1x. -->
-  <link rel="preload" as="image" href="assets/images/portrait-460.avif" type="image/avif"
-        imagesrcset="assets/images/portrait-460.avif 1x, assets/images/portrait-920.avif 2x"
+  <link rel="preload" as="image" href="assets/images/portrait-440.avif" type="image/avif"
+        imagesrcset="assets/images/portrait-440.avif 440w, assets/images/portrait-880.avif 880w"
         imagesizes="(max-width: 1024px) 380px, 440px" fetchpriority="high">
 
   <link rel="stylesheet" href="style.css">
@@ -215,12 +215,12 @@
             <div class="portrait-frame">
               <div class="portrait-media">
                 <picture>
-                  <source srcset="assets/images/portrait-460.avif 1x, assets/images/portrait-920.avif 2x"
+                  <source srcset="assets/images/portrait-440.avif 440w, assets/images/portrait-880.avif 880w"
                           sizes="(max-width: 1024px) 380px, 440px" type="image/avif">
-                  <source srcset="assets/images/portrait-460.webp 1x, assets/images/portrait-920.webp 2x"
+                  <source srcset="assets/images/portrait-440.webp 440w, assets/images/portrait-880.webp 880w"
                           sizes="(max-width: 1024px) 380px, 440px" type="image/webp">
                   <img src="assets/images/portrait.jpg" alt="Portrait of Abhi Jha" class="portrait-img" id="heroPortrait"
-                       width="460" height="575" fetchpriority="high" decoding="async">
+                       width="440" height="550" fetchpriority="high" decoding="async">
                 </picture>
               </div>
               <div class="portrait-corner-decor">AI_SEC // CYBER_CELL</div>
