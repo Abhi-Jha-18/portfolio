@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Serve portfolio on :3000",
+      "type": "shell",
+      "command": "npx --yes serve@14 -l 3000 .",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Validate HTML",
+      "type": "shell",
+      "command": "npx --yes html-validate@9 index.html 404.html",
+      "problemMatcher": []
+    }
+  ]
+}

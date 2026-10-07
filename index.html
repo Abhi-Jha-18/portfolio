@@ -3,24 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhi Jha — AI/ML Engineering & Cybersecurity | B.E. CSE</title>
+  <title>Abhi Jha — AI/ML Engineering &amp; Cybersecurity | B.E. CSE</title>
   <meta name="description" content="Portfolio of Abhi Jha, Junior CSE undergraduate focused on AI/ML-driven cybersecurity: network intrusion detection, audio and image deepfake forensics. Dr. Bhimrao Ambedkar University.">
-  <meta name="email" content="abhijha.edu@gmail.com">
-  <meta name="keywords" content="Abhi Jha, AI, Machine Learning, Cybersecurity, Deepfake Detection, VigilVoice, Cyber Sentinel, Network IDS, PyTorch, Scapy, Computer Vision, B.E. CSE">
   <meta name="author" content="Abhi Jha">
+  <meta name="keywords" content="Abhi Jha, AI, Machine Learning, Cybersecurity, Deepfake Detection, VigilVoice, Cyber Sentinel, Network IDS, PyTorch, Scapy, Computer Vision, B.E. CSE">
+  <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="{{SITE_URL}}/">
 
-  <!-- Open Graph -->
+  <!-- Open Graph (absolute URLs required — served from GitHub Pages) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Abhi Jha — AI/ML Engineering & Cybersecurity">
+  <meta property="og:site_name" content="Abhi Jha — Portfolio">
+  <meta property="og:url" content="{{SITE_URL}}/">
+  <meta property="og:title" content="Abhi Jha — AI/ML Engineering &amp; Cybersecurity">
   <meta property="og:description" content="Junior CSE undergraduate focused on AI/ML-driven cybersecurity: network intrusion detection and image and audio deepfake forensics.">
-  <meta property="og:image" content="assets/images/portrait.jpg">
+  <meta property="og:image" content="{{SITE_URL}}/assets/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Abhi Jha — AI/ML Engineering &amp; Cybersecurity">
+  <meta property="og:locale" content="en_IN">
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Abhi Jha — AI/ML Engineering &amp; Cybersecurity">
+  <meta name="twitter:description" content="Junior CSE undergraduate focused on AI/ML-driven cybersecurity: network intrusion detection and image and audio deepfake forensics.">
+  <meta name="twitter:image" content="{{SITE_URL}}/assets/images/og-card.jpg">
+  <meta name="twitter:image:alt" content="Abhi Jha — AI/ML Engineering &amp; Cybersecurity">
+
+  <!-- Icons -->
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Fonts: linked (not @import) so the browser discovers them alongside the stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+
+  <!-- Preload the LCP image. imagesrcset/imagesizes mirror the <picture> below
+       so HiDPI displays preload the 2x candidate rather than the 1x. -->
+  <link rel="preload" as="image" href="assets/images/portrait-440.avif" type="image/avif"
+        imagesrcset="assets/images/portrait-440.avif 440w, assets/images/portrait-880.avif 880w"
+        imagesizes="(max-width: 1024px) 380px, 440px" fetchpriority="high">
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abhi Jha",
+    "url": "{{SITE_URL}}/",
+    "image": "{{SITE_URL}}/assets/images/portrait.jpg",
+    "email": "mailto:abhijha.edu@gmail.com",
+    "telephone": "+91-8218778168",
+    "jobTitle": "Cybersecurity Intern & AI/ML Engineer",
+    "description": "Junior Computer Science undergraduate building deep learning systems for network intrusion detection, audio deepfake and voice-spoofing forensics, and synthetic media detection.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Agra",
+      "addressRegion": "Uttar Pradesh",
+      "addressCountry": "IN"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Dr. Bhimrao Ambedkar University",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Agra",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
+      }
+    },
+    "knowsAbout": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Cybersecurity",
+      "Network Intrusion Detection",
+      "Deepfake Detection",
+      "Digital Forensics",
+      "Computer Vision",
+      "Digital Signal Processing"
+    ],
+    "knowsLanguage": ["en", "hi"],
+    "sameAs": [
+      "https://github.com/Abhi-Jha-18",
+      "https://www.linkedin.com/in/abhi-jha-18"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "AWS Certified Cloud Practitioner",
+        "credentialCategory": "certification",
+        "recognizedBy": { "@type": "Organization", "name": "Amazon Web Services" },
+        "dateCreated": "2025"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Google Data Analytics Certificate",
+        "credentialCategory": "certificate",
+        "recognizedBy": { "@type": "Organization", "name": "Google" },
+        "dateCreated": "2025"
+      }
+    ],
+    "award": [
+      "Content Creator Award — Amroha Police Cybersecurity Cell, Government of Uttar Pradesh"
+    ]
+  }
+  </script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- NAVIGATION -->
   <header class="site-header" id="siteHeader">
@@ -47,14 +143,14 @@
           <span>Open to Internships</span>
         </div>
 
-        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle theme" title="Toggle Theme">
-          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Switch to dark theme" aria-pressed="false" title="Toggle Theme">
+          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
 
-        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button class="mobile-toggle" id="mobileNavToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -64,7 +160,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- HERO -->
     <section class="hero-section" id="hero">
       <div class="container">
@@ -76,7 +172,7 @@
             </div>
 
             <h1 class="hero-title">
-              Building <span class="editorial-italic">intelligent</span> & secure solutions for the real world.
+              Building <span class="editorial-italic">intelligent</span> &amp; secure solutions for the real world.
             </h1>
 
             <p class="hero-tagline">
@@ -89,7 +185,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </a>
 
-              <button class="btn btn-secondary" id="openResumeBtn">
+              <button type="button" class="btn btn-secondary" id="openResumeBtn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                 <span>View Resume</span>
               </button>
@@ -117,7 +213,16 @@
 
           <div class="hero-visual-wrapper">
             <div class="portrait-frame">
-              <img src="assets/images/portrait.jpg" alt="Portrait of Abhi Jha" class="portrait-img" id="heroPortrait">
+              <div class="portrait-media">
+                <picture>
+                  <source srcset="assets/images/portrait-440.avif 440w, assets/images/portrait-880.avif 880w"
+                          sizes="(max-width: 1024px) 380px, 440px" type="image/avif">
+                  <source srcset="assets/images/portrait-440.webp 440w, assets/images/portrait-880.webp 880w"
+                          sizes="(max-width: 1024px) 380px, 440px" type="image/webp">
+                  <img src="assets/images/portrait.jpg" alt="Portrait of Abhi Jha" class="portrait-img" id="heroPortrait"
+                       width="440" height="550" fetchpriority="high" decoding="async">
+                </picture>
+              </div>
               <div class="portrait-corner-decor">AI_SEC // CYBER_CELL</div>
 
               <div class="portrait-overlay-card">
@@ -125,7 +230,7 @@
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <div class="overlay-card-text">
-                  <h4>Deepfake & NIDS Active</h4>
+                  <h4>Deepfake &amp; NIDS Active</h4>
                   <p>VigilVoice · Cyber Sentinel</p>
                 </div>
               </div>
@@ -152,13 +257,13 @@
             <div class="pillar-icon-box">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
             </div>
-            <h3 class="pillar-title">Deepfake & Audio Forensics</h3>
+            <h3 class="pillar-title">Deepfake &amp; Audio Forensics</h3>
             <p class="pillar-description">
               Detecting AI voice clones, TTS, replay spoofing, and video synthetic media. Architecting end-to-end DSP pipelines (13-band MFCC, energy-based VAD) feeding 2D PyTorch CNNs, as well as OpenCV face-localization pipelines with temporal aggregation.
             </p>
             <ul class="pillar-skills-list">
               <li class="skill-tag">PyTorch 2D CNN</li>
-              <li class="skill-tag">Librosa & MFCC</li>
+              <li class="skill-tag">Librosa &amp; MFCC</li>
               <li class="skill-tag">Voice Forensics</li>
               <li class="skill-tag">OpenCV Vision</li>
               <li class="skill-tag">VigilVoice</li>
@@ -170,13 +275,13 @@
             <div class="pillar-icon-box">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3 class="pillar-title">Network Intrusion & Traffic Defense</h3>
+            <h3 class="pillar-title">Network Intrusion &amp; Traffic Defense</h3>
             <p class="pillar-description">
               Building deep learning-based Network Intrusion Detection Systems (NIDS) to flag port scans, DoS attacks, and brute-force attempts in live traffic. Designed hybrid LSTM/CNN models evaluated on live Scapy/Wireshark captures and CICIDS2017 datasets.
             </p>
             <ul class="pillar-skills-list">
               <li class="skill-tag">LSTM / CNN</li>
-              <li class="skill-tag">Scapy & Wireshark</li>
+              <li class="skill-tag">Scapy &amp; Wireshark</li>
               <li class="skill-tag">CICIDS2017 (90%+)</li>
               <li class="skill-tag">Traffic Classification</li>
               <li class="skill-tag">Cyber Sentinel</li>
@@ -188,28 +293,28 @@
             <div class="pillar-icon-box">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             </div>
-            <h3 class="pillar-title">Forensic Tooling & Scalable Systems</h3>
+            <h3 class="pillar-title">Forensic Tooling &amp; Scalable Systems</h3>
             <p class="pillar-description">
               Built automated forensic tools during my internship at Amroha Police Cybersecurity Cell to streamline digital-evidence workflows. Developing low-latency WebSocket monitors, forensic JSON loggers with SHA-256 hashes, Docker Compose containers, and REST APIs.
             </p>
             <ul class="pillar-skills-list">
               <li class="skill-tag">Police Cyber Cell</li>
-              <li class="skill-tag">FastAPI & WebSockets</li>
+              <li class="skill-tag">FastAPI &amp; WebSockets</li>
               <li class="skill-tag">Docker Compose</li>
               <li class="skill-tag">Evidence Handling</li>
-              <li class="skill-tag">React & Vite</li>
+              <li class="skill-tag">React &amp; Vite</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- TECH STACK & TERMINAL -->
+    <!-- TECH STACK &amp; TERMINAL -->
     <section class="section" id="skills">
       <div class="container">
         <div class="section-header">
           <span class="section-label">Technical Arsenal</span>
-          <h2 class="section-title">Skills & <span class="editorial-italic">Live Console</span></h2>
+          <h2 class="section-title">Skills &amp; <span class="editorial-italic">Live Console</span></h2>
           <p class="section-desc">
             A breakdown of my technical proficiencies across AI, security, and software — or explore them interactively on the terminal.
           </p>
@@ -218,41 +323,41 @@
         <div class="tech-section-grid">
           <!-- Skills Matrix -->
           <div class="skills-area">
-            <div class="tech-filter-nav" role="tablist">
-              <button class="filter-btn active" data-category="all">All Skills</button>
-              <button class="filter-btn" data-category="ai">AI / ML & DSP</button>
-              <button class="filter-btn" data-category="cyber">Security & Networking</button>
-              <button class="filter-btn" data-category="backend">Web & Backend</button>
-              <button class="filter-btn" data-category="tools">Languages & DevOps</button>
+            <div class="tech-filter-nav" role="group" aria-label="Filter skills by category">
+              <button class="filter-btn active" type="button" data-category="all" aria-pressed="true">All Skills</button>
+              <button class="filter-btn" type="button" data-category="ai" aria-pressed="false">AI / ML &amp; DSP</button>
+              <button class="filter-btn" type="button" data-category="cyber" aria-pressed="false">Security &amp; Networking</button>
+              <button class="filter-btn" type="button" data-category="backend" aria-pressed="false">Web &amp; Backend</button>
+              <button class="filter-btn" type="button" data-category="tools" aria-pressed="false">Languages &amp; DevOps</button>
             </div>
 
             <div class="skills-matrix" id="skillsMatrix">
               <!-- AI / ML -->
               <div class="matrix-item" data-category="ai">
-                <div class="matrix-header"><span class="matrix-name">PyTorch, CNN & LSTM</span><span class="matrix-badge">Deep Learning</span></div>
+                <div class="matrix-header"><span class="matrix-name">PyTorch, CNN &amp; LSTM</span><span class="matrix-badge">Deep Learning</span></div>
                 <p class="matrix-desc">2D PyTorch CNNs for spectrogram analysis, hybrid LSTM/CNN for packet classification.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 90%;"></div></div>
               </div>
 
               <div class="matrix-item" data-category="ai">
                 <div class="matrix-header"><span class="matrix-name">Digital Signal Processing (MFCC)</span><span class="matrix-badge">Audio Forensics</span></div>
-                <p class="matrix-desc">13-band MFCC extraction, energy-based VAD, silence clipping with Librosa, NumPy & SciPy.</p>
+                <p class="matrix-desc">13-band MFCC extraction, energy-based VAD, silence clipping with Librosa, NumPy &amp; SciPy.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 88%;"></div></div>
               </div>
 
               <div class="matrix-item" data-category="ai">
-                <div class="matrix-header"><span class="matrix-name">Computer Vision & OpenCV</span><span class="matrix-badge">Vision ML</span></div>
+                <div class="matrix-header"><span class="matrix-name">Computer Vision &amp; OpenCV</span><span class="matrix-badge">Vision ML</span></div>
                 <p class="matrix-desc">Frame-sampling, face localization, and temporal aggregation across video frames (92% precision).</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 86%;"></div></div>
               </div>
 
               <div class="matrix-item" data-category="ai">
-                <div class="matrix-header"><span class="matrix-name">ML Evaluation & Analytics</span><span class="matrix-badge">Metrics Suite</span></div>
+                <div class="matrix-header"><span class="matrix-name">ML Evaluation &amp; Analytics</span><span class="matrix-badge">Metrics Suite</span></div>
                 <p class="matrix-desc">Tracking EER, ROC-AUC, FAR/FRR, Scikit-learn, Pandas, noise robustness on speaker-disjoint splits.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 85%;"></div></div>
               </div>
 
-              <!-- Security & Networking -->
+              <!-- Security &amp; Networking -->
               <div class="matrix-item" data-category="cyber">
                 <div class="matrix-header"><span class="matrix-name">Network Intrusion Detection (NIDS)</span><span class="matrix-badge">Defense Core</span></div>
                 <p class="matrix-desc">Real-time packet classification, flagging DoS, port scans, brute-force on CICIDS2017 (90%+ acc).</p>
@@ -260,43 +365,43 @@
               </div>
 
               <div class="matrix-item" data-category="cyber">
-                <div class="matrix-header"><span class="matrix-name">Scapy & Wireshark Packet Capture</span><span class="matrix-badge">Traffic Analysis</span></div>
+                <div class="matrix-header"><span class="matrix-name">Scapy &amp; Wireshark Packet Capture</span><span class="matrix-badge">Traffic Analysis</span></div>
                 <p class="matrix-desc">Live packet inspection, feature extraction from raw PCAPs, socket-level sniffing.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 89%;"></div></div>
               </div>
 
               <div class="matrix-item" data-category="cyber">
-                <div class="matrix-header"><span class="matrix-name">Deepfake & Voice-Spoof Forensics</span><span class="matrix-badge">Specialized</span></div>
+                <div class="matrix-header"><span class="matrix-name">Deepfake &amp; Voice-Spoof Forensics</span><span class="matrix-badge">Specialized</span></div>
                 <p class="matrix-desc">Detecting AI clones, TTS, replay spoofing, model SHA-256 hashes for police cybercrime portals.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 94%;"></div></div>
               </div>
 
               <div class="matrix-item" data-category="cyber">
-                <div class="matrix-header"><span class="matrix-name">Digital Evidence & Threat Analysis</span><span class="matrix-badge">Police Cyber Cell</span></div>
+                <div class="matrix-header"><span class="matrix-name">Digital Evidence &amp; Threat Analysis</span><span class="matrix-badge">Police Cyber Cell</span></div>
                 <p class="matrix-desc">Automated forensic tools, digital evidence custody workflows, senior officer briefings.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 88%;"></div></div>
               </div>
 
-              <!-- Web & Backend -->
+              <!-- Web &amp; Backend -->
               <div class="matrix-item" data-category="backend">
-                <div class="matrix-header"><span class="matrix-name">FastAPI & WebSockets</span><span class="matrix-badge">Real-Time Backend</span></div>
+                <div class="matrix-header"><span class="matrix-name">FastAPI &amp; WebSockets</span><span class="matrix-badge">Real-Time Backend</span></div>
                 <p class="matrix-desc">2.5s sliding window streaming, multi-window voting, spike protection, REST API architecture.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 88%;"></div></div>
               </div>
 
               <div class="matrix-item" data-category="backend">
-                <div class="matrix-header"><span class="matrix-name">React, Vite & Tailwind CSS</span><span class="matrix-badge">Frontend</span></div>
+                <div class="matrix-header"><span class="matrix-name">React, Vite &amp; Tailwind CSS</span><span class="matrix-badge">Frontend</span></div>
                 <p class="matrix-desc">Modern interactive web applications, real-time waveform monitors, forensic dashboards.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 84%;"></div></div>
               </div>
 
               <div class="matrix-item" data-category="backend">
-                <div class="matrix-header"><span class="matrix-name">Databases: SQLite & MySQL</span><span class="matrix-badge">Data Storage</span></div>
-                <p class="matrix-desc">Relational schema design, SQL querying, structured incident records & forensics logs.</p>
+                <div class="matrix-header"><span class="matrix-name">Databases: SQLite &amp; MySQL</span><span class="matrix-badge">Data Storage</span></div>
+                <p class="matrix-desc">Relational schema design, SQL querying, structured incident records &amp; forensics logs.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 82%;"></div></div>
               </div>
 
-              <!-- Tools & Languages -->
+              <!-- Tools &amp; Languages -->
               <div class="matrix-item" data-category="tools">
                 <div class="matrix-header"><span class="matrix-name">Python</span><span class="matrix-badge">Primary</span></div>
                 <p class="matrix-desc">Asyncio, ML pipelines, packet processing, forensic automation, Pytest test suites.</p>
@@ -304,19 +409,19 @@
               </div>
 
               <div class="matrix-item" data-category="tools">
-                <div class="matrix-header"><span class="matrix-name">Java, C++, SQL & Bash</span><span class="matrix-badge">Core Languages</span></div>
+                <div class="matrix-header"><span class="matrix-name">Java, C++, SQL &amp; Bash</span><span class="matrix-badge">Core Languages</span></div>
                 <p class="matrix-desc">DSA, competitive problem solving, shell scripting, automation in Linux environments.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 82%;"></div></div>
               </div>
 
               <div class="matrix-item" data-category="tools">
-                <div class="matrix-header"><span class="matrix-name">Docker & Docker Compose</span><span class="matrix-badge">DevOps & Testing</span></div>
+                <div class="matrix-header"><span class="matrix-name">Docker &amp; Docker Compose</span><span class="matrix-badge">DevOps &amp; Testing</span></div>
                 <p class="matrix-desc">Containerized inference, 60+ Pytest integration tests, concurrent load testing scripts.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 86%;"></div></div>
               </div>
 
               <div class="matrix-item" data-category="tools">
-                <div class="matrix-header"><span class="matrix-name">AWS & Cloud (Practitioner)</span><span class="matrix-badge">Certified 2025</span></div>
+                <div class="matrix-header"><span class="matrix-name">AWS &amp; Cloud (Practitioner)</span><span class="matrix-badge">Certified 2025</span></div>
                 <p class="matrix-desc">AWS Certified Cloud Practitioner, cloud fundamentals, Linux server administration.</p>
                 <div class="matrix-bar-wrap"><div class="matrix-bar" style="width: 80%;"></div></div>
               </div>
@@ -335,7 +440,7 @@
               <div style="font-size: 0.7rem; color: #10b981;">● ACTIVE</div>
             </div>
 
-            <div class="terminal-body" id="terminalOutput">
+            <div class="terminal-body" id="terminalOutput" role="log" aria-live="polite" aria-label="Terminal output">
               <div class="terminal-line">
                 <span class="terminal-prompt">abhi@portfolio:~$</span>
                 <span class="terminal-command"> whoami</span>
@@ -352,7 +457,7 @@
                 <span class="terminal-command"> ls projects/</span>
               </div>
               <div class="terminal-output">
-                📁 VigilVoice/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Real-Time Audio Deepfake & Voice Spoofing Detection<br>
+                📁 VigilVoice/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Real-Time Audio Deepfake &amp; Voice Spoofing Detection<br>
                 📁 Cyber-Sentinel/ &nbsp;&nbsp; # AI-Powered Network Intrusion Detection System<br>
                 📁 Deepfake-CV/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Computer Vision Synthetic Media Detector<br>
                 📁 Police-Forensics/ &nbsp; # Automated Digital Evidence Tooling Suite
@@ -361,30 +466,31 @@
 
             <div class="terminal-actions-bar">
               <span style="font-size: 0.72rem; color: #9ca3af; align-self: center;">Quick commands:</span>
-              <button class="term-chip" data-cmd="whoami">whoami</button>
-              <button class="term-chip" data-cmd="experience">experience</button>
-              <button class="term-chip" data-cmd="projects">projects</button>
-              <button class="term-chip" data-cmd="skills">skills</button>
-              <button class="term-chip" data-cmd="certs">certs</button>
-              <button class="term-chip" data-cmd="contact">contact</button>
-              <button class="term-chip" data-cmd="clear">clear</button>
+              <button class="term-chip" type="button" data-cmd="whoami">whoami</button>
+              <button class="term-chip" type="button" data-cmd="experience">experience</button>
+              <button class="term-chip" type="button" data-cmd="projects">projects</button>
+              <button class="term-chip" type="button" data-cmd="skills">skills</button>
+              <button class="term-chip" type="button" data-cmd="certs">certs</button>
+              <button class="term-chip" type="button" data-cmd="contact">contact</button>
+              <button class="term-chip" type="button" data-cmd="clear">clear</button>
             </div>
 
             <div class="terminal-input-row" style="padding: 0 1rem 1rem;">
-              <span class="terminal-prompt" style="font-size: 0.85rem;">abhi@portfolio:~$</span>
-              <input type="text" id="terminalInput" placeholder="Type a command (try 'help' or 'experience')..." autocomplete="off" spellcheck="false">
+              <span class="terminal-prompt" style="font-size: 0.85rem;" aria-hidden="true">abhi@portfolio:~$</span>
+              <label for="terminalInput" class="visually-hidden">Terminal command input</label>
+              <input type="text" id="terminalInput" name="terminalCommand" placeholder="Type a command (try 'help' or 'experience')..." autocomplete="off" autocapitalize="off" spellcheck="false">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE & EDUCATION -->
+    <!-- EXPERIENCE &amp; EDUCATION -->
     <section class="section" id="experience">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Background & Track Record</span>
-          <h2 class="section-title">Work Experience & <span class="editorial-italic">Education</span></h2>
+          <span class="section-label">Background &amp; Track Record</span>
+          <h2 class="section-title">Work Experience &amp; <span class="editorial-italic">Education</span></h2>
           <p class="section-desc">
             Direct law-enforcement cybersecurity internship experience alongside Computer Science Engineering studies.
           </p>
@@ -424,7 +530,7 @@
             </div>
           </div>
 
-          <!-- Column 2: Education & Target -->
+          <!-- Column 2: Education &amp; Target -->
           <div class="timeline-column">
             <h3 class="timeline-column-title">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
@@ -441,12 +547,12 @@
                   Cumulative Grade Point Average (CGPA): 8.0 / 10.0
                 </div>
                 <p class="timeline-details">
-                  <strong>Relevant Coursework:</strong> Data Structures & Algorithms, Operating Systems, DBMS, Computer Networks, Machine Learning, Artificial Intelligence, Cybersecurity, Computer Vision.
+                  <strong>Relevant Coursework:</strong> Data Structures &amp; Algorithms, Operating Systems, DBMS, Computer Networks, Machine Learning, Artificial Intelligence, Cybersecurity, Computer Vision.
                 </p>
                 <div class="timeline-tags">
                   <span class="badge badge-ai">CGPA: 8.0/10.0</span>
-                  <span class="badge">DSA & DBMS</span>
-                  <span class="badge badge-cyber">Cybersecurity & Networks</span>
+                  <span class="badge">DSA &amp; DBMS</span>
+                  <span class="badge badge-cyber">Cybersecurity &amp; Networks</span>
                 </div>
               </div>
 
@@ -473,7 +579,7 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label">Technical Projects</span>
-          <h2 class="section-title">Deep Learning & <span class="editorial-italic">Forensic Systems</span></h2>
+          <h2 class="section-title">Deep Learning &amp; <span class="editorial-italic">Forensic Systems</span></h2>
           <p class="section-desc">
             Production-grade systems tested on real-world datasets, live packet streams, and synthetic media benchmarks.
           </p>
@@ -483,7 +589,7 @@
           <!-- Project 1: VigilVoice -->
           <article class="project-card">
             <div class="project-header-bar">
-              <span class="project-type-tag">Real-Time Audio Deepfake & Voice Spoofing</span>
+              <span class="project-type-tag">Real-Time Audio Deepfake &amp; Voice Spoofing</span>
               <span class="badge badge-ai">PyTorch + DSP</span>
             </div>
             <div class="project-body">
@@ -496,7 +602,7 @@
                 <li>Evaluation suite tracking EER, ROC-AUC, FAR/FRR, and noise robustness on speaker-disjoint splits.</li>
                 <li>Low-latency WebSocket monitor using a 2.5s sliding window (1.0s hop) with rolling multi-window voting and spike protection.</li>
                 <li>Forensic incident logger recording peak spoof scores and model SHA-256 hashes in traceable JSON reports.</li>
-                <li>Containerized with Docker Compose; 60+ integration tests & load-testing scripts with asyncio semaphores.</li>
+                <li>Containerized with Docker Compose; 60+ integration tests &amp; load-testing scripts with asyncio semaphores.</li>
               </ul>
               <div class="project-tech-stack">
                 <span class="skill-tag">Python</span>
@@ -509,14 +615,14 @@
                 <span class="skill-tag">Pytest</span>
               </div>
               <div class="project-footer">
-                <button class="link-btn project-modal-trigger" data-project="vigilvoice">
+                <button type="button" class="link-btn project-modal-trigger" data-project="vigilvoice">
                   <span>View Technical Specs</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
                 <div class="project-links">
-                  <a href="https://github.com/Abhi-Jha-18" target="_blank" rel="noopener noreferrer" class="link-btn" title="GitHub">
+                  <a href="https://github.com/Abhi-Jha-18/vigil-voice" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="View VigilVoice source code on GitHub (opens in a new tab)">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    <span>GitHub</span>
+                    <span>View source</span>
                   </a>
                 </div>
               </div>
@@ -548,14 +654,14 @@
                 <span class="skill-tag">Traffic Classification</span>
               </div>
               <div class="project-footer">
-                <button class="link-btn project-modal-trigger" data-project="cybersentinel">
+                <button type="button" class="link-btn project-modal-trigger" data-project="cybersentinel">
                   <span>View Technical Specs</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
                 <div class="project-links">
-                  <a href="https://github.com/Abhi-Jha-18" target="_blank" rel="noopener noreferrer" class="link-btn" title="GitHub">
+                  <a href="https://github.com/Abhi-Jha-18/cyber-sentinel-ids" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="View the Cyber Sentinel monitoring dashboard on GitHub — the Python detection model is not published in this repository (opens in a new tab)">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    <span>GitHub</span>
+                    <span>IDS Dashboard repo</span>
                   </a>
                 </div>
               </div>
@@ -565,7 +671,7 @@
           <!-- Project 3: Deepfake Detection System using Computer Vision -->
           <article class="project-card">
             <div class="project-header-bar">
-              <span class="project-type-tag">Video Forensics & Computer Vision</span>
+              <span class="project-type-tag">Video Forensics &amp; Computer Vision</span>
               <span class="badge badge-ai">OpenCV + CNN</span>
             </div>
             <div class="project-body">
@@ -586,14 +692,14 @@
                 <span class="skill-tag">Face Localization</span>
               </div>
               <div class="project-footer">
-                <button class="link-btn project-modal-trigger" data-project="deepfakecv">
+                <button type="button" class="link-btn project-modal-trigger" data-project="deepfakecv">
                   <span>View Technical Specs</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
                 <div class="project-links">
-                  <a href="https://github.com/Abhi-Jha-18" target="_blank" rel="noopener noreferrer" class="link-btn" title="GitHub">
+                  <a href="https://github.com/Abhi-Jha-18/Anti-deepfake_Project" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="View Deepfake Detection System source code on GitHub (opens in a new tab)">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    <span>GitHub</span>
+                    <span>View source</span>
                   </a>
                 </div>
               </div>
@@ -623,7 +729,7 @@
                 <span class="skill-tag">Synthetic Media Classifier</span>
               </div>
               <div class="project-footer">
-                <button class="link-btn project-modal-trigger" data-project="forensictools">
+                <button type="button" class="link-btn project-modal-trigger" data-project="forensictools">
                   <span>View Details</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
@@ -637,12 +743,12 @@
       </div>
     </section>
 
-    <!-- CERTIFICATIONS, PROGRAMS & LEADERSHIP -->
+    <!-- CERTIFICATIONS, PROGRAMS &amp; LEADERSHIP -->
     <section class="section" id="certifications">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Credentials & Leadership</span>
-          <h2 class="section-title">Certifications, <span class="editorial-italic">Programs & Recognition</span></h2>
+          <span class="section-label">Credentials &amp; Leadership</span>
+          <h2 class="section-title">Certifications, <span class="editorial-italic">Programs &amp; Recognition</span></h2>
           <p class="section-desc">
             Professional industry certifications, advanced security programs, and public leadership recognitions.
           </p>
@@ -688,7 +794,7 @@
               <span class="credential-year">2026</span>
             </div>
             <h3 class="credential-title">APCSIP-2026</h3>
-            <div class="credential-issuer">Cyber Security & Infosec Practices</div>
+            <div class="credential-issuer">Cyber Security &amp; Infosec Practices</div>
             <p class="credential-desc">
               Advanced specialized program in contemporary cybersecurity practices, defensive infosec standards, vulnerability assessment, and threat mitigation.
             </p>
@@ -709,7 +815,7 @@
             </p>
           </div>
 
-          <!-- Leadership & Recognition -->
+          <!-- Leadership &amp; Recognition -->
           <div class="credential-card award-highlight-card">
             <div class="credential-header">
               <div class="credential-icon-badge" style="color: #b45309; background: rgba(234, 179, 8, 0.15);">
@@ -732,9 +838,9 @@
               <span class="credential-year">LEADERSHIP</span>
             </div>
             <h3 class="credential-title">IET International Technology Conference</h3>
-            <div class="credential-issuer">Anchor & Designer</div>
+            <div class="credential-issuer">Anchor &amp; Designer</div>
             <p class="credential-desc">
-              Served as official Anchor & Visual Designer for an international technology conference hosting 200+ global delegates, leading stage presentations and visual media.
+              Served as official Anchor &amp; Visual Designer for an international technology conference hosting 200+ global delegates, leading stage presentations and visual media.
             </p>
           </div>
         </div>
@@ -757,7 +863,7 @@
           <div class="contact-meta-area">
             <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem;">Find Me On</h3>
             <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-              Reach out via Email, Phone/WhatsApp, LinkedIn, or explore my code on GitHub. Open to Cybersecurity & AI-ML engineering internship roles.
+              Reach out via Email, Phone/WhatsApp, LinkedIn, or explore my code on GitHub. Open to Cybersecurity &amp; AI-ML engineering internship roles.
             </p>
 
             <div class="contact-info-list">
@@ -772,7 +878,7 @@
                     <div class="contact-value" id="emailAddressDisplay">abhijha.edu@gmail.com</div>
                   </div>
                 </div>
-                <button class="copy-btn" id="copyEmailBtn" title="Copy email address">Copy</button>
+                <button type="button" class="copy-btn" id="copyEmailBtn" title="Copy email address">Copy</button>
               </div>
 
               <!-- Phone -->
@@ -786,7 +892,7 @@
                     <div class="contact-value">+91 8218778168</div>
                   </div>
                 </div>
-                <button class="copy-btn" id="copyPhoneBtn" title="Copy phone number">Copy</button>
+                <button type="button" class="copy-btn" id="copyPhoneBtn" title="Copy phone number">Copy</button>
               </div>
 
               <!-- LinkedIn -->
@@ -824,7 +930,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                   </div>
                   <div>
-                    <div class="contact-label">Location & Local Time</div>
+                    <div class="contact-label">Location &amp; Local Time</div>
                     <div class="contact-value" id="liveTimeClock">Agra / India (IST)</div>
                   </div>
                 </div>
@@ -855,31 +961,58 @@
               Have an internship, project, or collaboration in mind? I'd love to hear from you.
             </p>
 
-            <form id="contactForm" novalidate>
+            <!-- No-JS fallback: without the script the browser POSTs straight to
+                 FormSubmit, which forwards to abhijha.edu@gmail.com. The script
+                 upgrades this to an inline fetch() submit against the AJAX
+                 endpoint (see FORM_ENDPOINT in script.js) with validation and
+                 an honest success/error state.
+
+                 FormSubmit needs no account: the first submission emails
+                 abhijha.edu@gmail.com a one-time activation link. -->
+            <form id="contactForm" action="https://formsubmit.co/abhijha.edu@gmail.com" method="POST" novalidate>
+              <!-- FormSubmit configuration -->
+              <input type="hidden" name="_subject" value="New message from your portfolio">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
               <div class="form-group">
-                <label for="contactName" class="form-label">Your Name *</label>
-                <input type="text" id="contactName" class="form-input" placeholder="e.g. Hiring Manager / Engineer" required>
+                <label for="contactName" class="form-label">Your Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="contactName" name="name" class="form-input" placeholder="e.g. Hiring Manager / Engineer"
+                       autocomplete="name" required aria-required="true" aria-describedby="contactFormStatus">
               </div>
 
               <div class="form-group">
-                <label for="contactEmail" class="form-label">Your Email *</label>
-                <input type="email" id="contactEmail" class="form-input" placeholder="name@company.com" required>
+                <label for="contactEmail" class="form-label">Your Email <span aria-hidden="true">*</span></label>
+                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="name@company.com"
+                       autocomplete="email" required aria-required="true" aria-describedby="contactFormStatus">
               </div>
 
               <div class="form-group">
                 <label for="contactSubject" class="form-label">Subject</label>
-                <input type="text" id="contactSubject" class="form-input" placeholder="e.g. Cybersecurity / AI-ML Internship Opportunity">
+                <input type="text" id="contactSubject" name="subject" class="form-input" placeholder="e.g. Cybersecurity / AI-ML Internship Opportunity">
               </div>
 
               <div class="form-group">
-                <label for="contactMessage" class="form-label">Message *</label>
-                <textarea id="contactMessage" class="form-textarea" placeholder="Tell me about the role, project, or idea..." required></textarea>
+                <label for="contactMessage" class="form-label">Message <span aria-hidden="true">*</span></label>
+                <textarea id="contactMessage" name="message" class="form-textarea" placeholder="Tell me about the role, project, or idea..."
+                          required aria-required="true" aria-describedby="contactFormStatus"></textarea>
               </div>
 
+              <!-- Bot honeypot: hidden from humans. FormSubmit's own convention is
+                   a field literally named _honey, which it drops server-side too. -->
+              <div class="hp-field" aria-hidden="true">
+                <label for="contactCompanyWebsite">Leave this field empty</label>
+                <input type="text" id="contactCompanyWebsite" name="_honey" tabindex="-1" autocomplete="off">
+              </div>
+
+              <p class="form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
+
               <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;" id="submitBtn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 <span>Send Message</span>
               </button>
+              <p class="form-note">
+                Prefer email? Write to <a href="mailto:abhijha.edu@gmail.com">abhijha.edu@gmail.com</a>
+              </p>
             </form>
           </div>
         </div>
@@ -920,13 +1053,13 @@
   </footer>
 
   <!-- RESUME MODAL (1:1 OFFICIAL RESUME) -->
-  <div class="modal-backdrop" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
-    <div class="modal-content">
-      <button class="modal-close-btn" id="closeResumeModalBtn" aria-label="Close Resume Modal">✕</button>
+  <div class="modal-backdrop" id="resumeModal" data-modal-kind="resume" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
+    <div class="modal-content" tabindex="-1">
+      <button type="button" class="modal-close-btn" id="closeResumeModalBtn" aria-label="Close resume preview">✕</button>
 
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;" class="modal-actions">
         <h3 id="resumeModalTitle" style="font-size: 1.25rem; font-weight: 700;">Resume Preview</h3>
-        <button class="btn btn-primary btn-sm" id="printResumeBtn">
+        <button class="btn btn-primary btn-sm" id="printResumeBtn" type="button">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
           <span>Print / Save PDF</span>
         </button>
@@ -967,7 +1100,7 @@
             <span>July 2024 – July 2028</span>
           </div>
           <p style="font-size: 0.82rem; color: #4b5563; line-height: 1.5; margin-top: 0.2rem;">
-            <em>Relevant Coursework:</em> Data Structures & Algorithms, Operating Systems, DBMS, Computer Networks, Machine Learning, Artificial Intelligence, Cybersecurity, Computer Vision
+            <em>Relevant Coursework:</em> Data Structures &amp; Algorithms, Operating Systems, DBMS, Computer Networks, Machine Learning, Artificial Intelligence, Cybersecurity, Computer Vision
           </p>
         </div>
 
@@ -992,8 +1125,8 @@
 
           <div style="margin-bottom: 0.85rem;">
             <div class="resume-item-title">
-              <span>VigilVoice: Real-Time Audio Deepfake & Voice Spoofing Detection</span>
-              <span>GitHub | Live Demo</span>
+              <span>VigilVoice: Real-Time Audio Deepfake &amp; Voice Spoofing Detection</span>
+              <span><a href="https://github.com/Abhi-Jha-18/vigil-voice" target="_blank" rel="noopener noreferrer">GitHub</a></span>
             </div>
             <div class="resume-item-sub" style="font-style: italic; color: #4b5563;">
               <span>Python, PyTorch, FastAPI, Librosa, NumPy, SciPy, React, Vite, WebSockets, Tailwind CSS, Docker, Pytest</span>
@@ -1010,7 +1143,7 @@
           <div style="margin-bottom: 0.85rem;">
             <div class="resume-item-title">
               <span>Cyber Sentinel: AI-Powered Network Intrusion Detection System</span>
-              <span>GitHub</span>
+              <span><a href="https://github.com/Abhi-Jha-18/cyber-sentinel-ids" target="_blank" rel="noopener noreferrer">GitHub</a></span>
             </div>
             <div class="resume-item-sub" style="font-style: italic; color: #4b5563;">
               <span>Python, LSTM/CNN, Scapy, Wireshark</span>
@@ -1024,7 +1157,7 @@
           <div style="margin-bottom: 0.85rem;">
             <div class="resume-item-title">
               <span>Deepfake Detection System using Computer Vision</span>
-              <span>GitHub</span>
+              <span><a href="https://github.com/Abhi-Jha-18/Anti-deepfake_Project" target="_blank" rel="noopener noreferrer">GitHub</a></span>
             </div>
             <div class="resume-item-sub" style="font-style: italic; color: #4b5563;">
               <span>Python, OpenCV, CNN</span>
@@ -1041,19 +1174,19 @@
           <h4 class="resume-section-title">TECHNICAL SKILLS</h4>
           <p style="font-size: 0.83rem; color: #374151; line-height: 1.65;">
             <strong>• Languages:</strong> Python, Java, C++, SQL, JavaScript, HTML, CSS, Bash<br>
-            <strong>• AI / ML & Data:</strong> CNN, LSTM, PyTorch, Scikit-learn, Pandas, NumPy, SciPy, Librosa, OpenCV, Digital Signal Processing (MFCC)<br>
-            <strong>• Security & Networking:</strong> Network Intrusion Detection, Packet Capture (Scapy/Wireshark), Deepfake & Voice-Spoofing Forensics, Digital Evidence Handling, Threat Analysis<br>
-            <strong>• Web, Backend & Tools:</strong> FastAPI, React, WebSockets, REST APIs, Pytest, Git, Docker, Docker Compose, AWS, Linux, SQLite, MySQL
+            <strong>• AI / ML &amp; Data:</strong> CNN, LSTM, PyTorch, Scikit-learn, Pandas, NumPy, SciPy, Librosa, OpenCV, Digital Signal Processing (MFCC)<br>
+            <strong>• Security &amp; Networking:</strong> Network Intrusion Detection, Packet Capture (Scapy/Wireshark), Deepfake &amp; Voice-Spoofing Forensics, Digital Evidence Handling, Threat Analysis<br>
+            <strong>• Web, Backend &amp; Tools:</strong> FastAPI, React, WebSockets, REST APIs, Pytest, Git, Docker, Docker Compose, AWS, Linux, SQLite, MySQL
           </p>
         </div>
 
-        <!-- CERTIFICATIONS, PROGRAMS & LEADERSHIP -->
+        <!-- CERTIFICATIONS, PROGRAMS &amp; LEADERSHIP -->
         <div class="resume-section-block" style="margin-bottom: 0;">
-          <h4 class="resume-section-title">CERTIFICATIONS, PROGRAMS & LEADERSHIP</h4>
+          <h4 class="resume-section-title">CERTIFICATIONS, PROGRAMS &amp; LEADERSHIP</h4>
           <ul class="resume-bullets">
             <li><strong>Certifications:</strong> AWS Certified Cloud Practitioner (2025); Google Data Analytics Certificate (2025)</li>
-            <li><strong>Programs:</strong> APCSIP-2026 (Cyber Security & Infosec Practices); Microsoft Global Fabric Fair 2026</li>
-            <li><strong>IET International Technology Conference:</strong> Anchor & Designer for an event with 200+ delegates</li>
+            <li><strong>Programs:</strong> APCSIP-2026 (Cyber Security &amp; Infosec Practices); Microsoft Global Fabric Fair 2026</li>
+            <li><strong>IET International Technology Conference:</strong> Anchor &amp; Designer for an event with 200+ delegates</li>
             <li><strong>Content Creator Award:</strong> Presentation of security tooling to panel of 10+ senior law-enforcement officers</li>
           </ul>
         </div>
@@ -1062,9 +1195,9 @@
   </div>
 
   <!-- PROJECT DETAIL MODAL -->
-  <div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
-    <div class="modal-content">
-      <button class="modal-close-btn" id="closeProjectModalBtn" aria-label="Close Project Modal">✕</button>
+  <div class="modal-backdrop" id="projectModal" data-modal-kind="project" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+    <div class="modal-content" tabindex="-1">
+      <button type="button" class="modal-close-btn" id="closeProjectModalBtn" aria-label="Close project details">✕</button>
       <div id="projectModalBody"></div>
     </div>
   </div>

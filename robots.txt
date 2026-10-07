@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Nothing here is private — just keep crawlers out of build scaffolding
+Disallow: /.github/
+Disallow: /.vscode/
+
+# {{SITE_URL}} is replaced with the live Pages base URL at deploy time
+Sitemap: {{SITE_URL}}/sitemap.xml
