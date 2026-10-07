@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Abhi Jha</title>
+  <meta name="description" content="That page doesn't exist. Head back to Abhi Jha's portfolio.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    .error-code {
+      font-family: var(--font-mono);
+      font-size: clamp(4rem, 16vw, 9rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+    .error-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .error-copy {
+      color: var(--text-secondary);
+      max-width: 46ch;
+      margin: 0 auto 2rem;
+    }
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="error-page">
+    <div>
+      <div class="error-code" aria-hidden="true">404</div>
+      <h1 class="error-title">This route doesn't resolve.</h1>
+      <p class="error-copy">
+        The page you asked for isn't here. The packet may have been dropped —
+        or the link was never valid in the first place.
+      </p>
+      <div class="error-actions">
+        <a href="./" class="btn btn-primary">
+          <span>Back to the portfolio</span>
+        </a>
+        <a href="https://github.com/Abhi-Jha-18" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <span>Browse my GitHub</span>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

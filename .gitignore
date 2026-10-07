@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build / deploy output
+_site/
+dist/
+build/
+.jekyll-cache/
+_sitecache/
+
+# Editor & OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local environment
+.env
+.env.local

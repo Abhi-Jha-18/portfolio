@@ -1,0 +1,89 @@
+name: Deploy portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Resolves the live Pages base URL (e.g. https://abhi-jha-18.github.io/portfolio)
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        id: pages
+
+      - name: Inject the deployed site URL
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          echo "Site URL: $SITE_URL"
+          if [ -z "$SITE_URL" ]; then
+            echo "::warning::No Pages base URL available; leaving {{SITE_URL}} placeholders in place."
+            exit 0
+          fi
+
+          # The source uses {{SITE_URL}} placeholders so that canonical, og:image,
+          # sitemap.xml and robots.txt carry absolute URLs matching wherever the
+          # site is actually hosted.
+          find . -type f \( -name '*.html' -o -name '*.xml' -o -name '*.txt' -o -name '*.webmanifest' \) \
+            -not -path './.git/*' -print0 \
+            | xargs -0 sed -i "s|{{SITE_URL}}|${SITE_URL%/}|g"
+
+      - name: Warn if the contact form is not configured
+        run: |
+          if grep -rq '{{FORMSPREE_ID}}' index.html script.js; then
+            echo "::warning title=Contact form not configured::index.html and script.js still contain {{FORMSPREE_ID}}. The form falls back to mailto: until a real Formspree endpoint is set."
+          else
+            echo "Contact form endpoint configured."
+          fi
+
+      - name: Prepare deploy directory
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          # Everything except build scaffolding gets published
+          for item in *; do
+            case "$item" in
+              node_modules|_site) continue ;;
+              *) cp -r "$item" _site/ ;;
+            esac
+          done
+          rm -f _site/preview.bat _site/.htmlvalidate.json
+          rm -rf _site/assets/source
+          echo "--- publishing ---"
+          find _site -maxdepth 1 -mindepth 1 | sort
+
+      - name: Validate HTML
+        run: npx --yes html-validate@9 _site/index.html _site/404.html
+
+      - name: Check for broken internal links and assets
+        run: |
+          npx --yes linkinator@6 _site --silent --skip '^https?://' --recurse
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

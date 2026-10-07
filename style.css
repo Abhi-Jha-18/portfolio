@@ -1,10 +1,14 @@
 /* ==========================================================================
    EDITORIAL MODERN DESIGN SYSTEM (AI, CYBERSECURITY & SOFTWARE ENGINEERING)
+
+   Web fonts are loaded with <link> tags in index.html rather than an @import
+   here — @import serialises the request chain (HTML → CSS → fonts CSS → font
+   files) and blocks first paint.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 :root {
+  color-scheme: light;
+
   /* Editorial Light Mode (Default) */
   --bg-main: #fbfbf9;
   --bg-surface: #ffffff;
@@ -14,7 +18,7 @@
   
   --text-main: #14171a;
   --text-secondary: #525866;
-  --text-muted: #868e96;
+  --text-muted: #666c77;   /* WCAG AA >=4.79:1 on every light surface (was #868e96 at 3.21:1) */
   --text-inverse: #fbfbf9;
   
   --accent-primary: #194436;      /* Deep editorial forest emerald */
@@ -50,6 +54,8 @@
 
 /* Dark Mode Theme */
 [data-theme="dark"] {
+  color-scheme: dark;
+
   --bg-main: #0c0e12;
   --bg-surface: #14181f;
   --bg-surface-elevated: #1b212b;
@@ -58,7 +64,7 @@
   
   --text-main: #f0f3f6;
   --text-secondary: #9ea8b6;
-  --text-muted: #647082;
+  --text-muted: #98a3b3;   /* WCAG AA 5.90:1 on --bg-main (was #647082 at 3.85:1) */
   --text-inverse: #0c0e12;
   
   --accent-primary: #38bdf8;
@@ -87,6 +93,67 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  /* The header is fixed, so anchor jumps would land underneath it */
+  scroll-padding-top: calc(var(--nav-height) + 1rem);
+}
+
+/* Anchor targets must clear the fixed header too (Safari ignores scroll-padding here) */
+section[id],
+[id]:target {
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+
+/* 1px-clipped but still available to screen readers */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 4000;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius-md);
+  background: var(--text-main);
+  color: var(--bg-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-200%);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   FOCUS VISIBILITY
+   Keyboard-only focus ring — never removed, only shown for keyboard users.
+   ========================================================================== */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--text-main);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* On the dark terminal surface the default ring is invisible */
+.terminal-card :where(a, button, input, [tabindex]):focus-visible {
+  outline-color: #93c5fd;
 }
 
 body {
@@ -766,6 +833,19 @@ button {
   transition: all var(--transition-fast);
 }
 
+/* Filtered-out skills. The script toggles [hidden], so the rule below is
+   required — a bare `display: flex/grid` on the item would otherwise beat
+   the UA stylesheet's `[hidden] { display: none }`. */
+.matrix-item[hidden] {
+  display: none;
+}
+
+/* Entrance animation for the skills filter (was inline opacity juggling) */
+.matrix-item.is-entering {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
 .matrix-item:hover {
   border-color: var(--border-medium);
   transform: translateY(-2px);
@@ -1394,6 +1474,79 @@ button {
   min-height: 130px;
 }
 
+::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+/* Honeypot: positioned off-screen rather than display:none, because some
+   bots skip fields that are display:none. Never focusable, never announced. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status {
+  display: none;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.form-status.is-visible {
+  display: block;
+}
+
+.form-status.is-error {
+  background: var(--accent-secondary-light);
+  color: var(--accent-secondary);
+  border: 1px solid rgba(201, 74, 41, 0.25);
+}
+
+/* #c94a29 only reaches 4.06:1 on the tinted error background — darken it in
+   light mode so form errors clear WCAG AA (5.54:1). */
+:root:not([data-theme="dark"]) .form-status.is-error {
+  color: #a83a1e;
+}
+
+.form-status.is-success {
+  background: var(--accent-primary-light);
+  color: var(--accent-primary);
+  border: 1px solid rgba(25, 68, 54, 0.2);
+}
+
+/* Neutral state — used when we hand off to the visitor's mail client
+   rather than claiming the message was delivered server-side. */
+.form-status.is-info {
+  background: var(--bg-surface-elevated);
+  color: var(--text-main);
+  border: 1px solid var(--border-medium);
+}
+
+[data-theme="dark"] .form-status.is-success {
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.form-note {
+  margin-top: 0.9rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.form-note a {
+  color: var(--accent-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .spin {
   animation: spin 1s linear infinite;
 }
@@ -1408,6 +1561,7 @@ button {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  max-width: min(420px, calc(100vw - 2rem));
   background: var(--text-main);
   color: var(--bg-main);
   padding: 1rem 1.5rem;
@@ -1653,6 +1807,42 @@ button {
   }
 }
 
+/* ==========================================================================
+   REDUCED MOTION
+   Honours the OS "reduce motion" setting: smooth scrolling, the pulsing status
+   dot, card floats and hover transforms are all disabled or shortened.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .status-dot::after {
+    display: none;
+  }
+
+  .portrait-overlay-card {
+    animation: none !important;
+  }
+
+  .btn:hover,
+  .btn-secondary:hover,
+  .back-to-top-btn:hover,
+  .theme-toggle-btn:hover,
+  .portrait-frame:hover .portrait-img {
+    transform: none;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
@@ -1709,37 +1899,91 @@ button {
    PRINT MEDIA STYLES (Clean PDF Resume Generation)
    ========================================================================== */
 @media print {
-  body * {
+  /* ---------------------------------------------------------------------
+     Mode A — printing the page itself (Ctrl+P / browser menu).
+     The old stylesheet hid *everything* unconditionally, so this produced
+     a blank sheet. Now the page prints normally, minus screen-only chrome.
+     --------------------------------------------------------------------- */
+  .site-header,
+  .skip-link,
+  .toast-notification,
+  .back-to-top-btn,
+  body::before {
+    display: none !important;
+  }
+
+  .hero-section {
+    padding: 1rem 0 2rem;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .pillar-card,
+  .matrix-item,
+  .credential-card,
+  .timeline-item,
+  .project-card,
+  .portrait-frame {
+    break-inside: avoid;
+  }
+
+  .project-card,
+  .pillar-card,
+  .credential-card {
+    border-color: #d1d5db;
+    box-shadow: none;
+  }
+
+  /* ---------------------------------------------------------------------
+     Mode B — "Print / Save PDF" from the resume modal.
+     The script adds .print-mode to <body> for the duration of the print,
+     so only the resume sheet reaches the paper.
+     --------------------------------------------------------------------- */
+  body.print-mode * {
     visibility: hidden;
   }
 
-  .modal-backdrop,
-  .resume-sheet,
-  .resume-sheet * {
+  body.print-mode .modal-backdrop#resumeModal,
+  body.print-mode .modal-backdrop#resumeModal * {
     visibility: visible;
   }
 
-  .modal-backdrop {
+  body.print-mode .modal-backdrop#resumeModal {
     position: absolute;
     inset: 0;
+    display: block;
     background: none;
     padding: 0;
+    opacity: 1;
+    backdrop-filter: none;
   }
 
-  .modal-content {
+  body.print-mode .modal-content {
     border: none;
     box-shadow: none;
     padding: 0;
     max-width: 100%;
+    max-height: none;
+    overflow: visible;
   }
 
-  .modal-close-btn,
-  .modal-actions {
+  body.print-mode .modal-close-btn,
+  body.print-mode .modal-actions {
     display: none !important;
   }
 
-  .resume-sheet {
+  body.print-mode .resume-sheet {
     border: none;
+    box-shadow: none;
     padding: 0;
+  }
+
+  /* Paper can't be clicked — spell the links out */
+  .resume-sheet a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.72rem;
+    color: #6b7280;
   }
 }

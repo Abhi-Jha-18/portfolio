@@ -2,23 +2,25 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Portfolio in Chrome",
-      "type": "chrome",
-      "request": "launch",
-      "file": "${workspaceFolder}/index.html"
-    },
-    {
-      "name": "Launch Portfolio in Edge",
-      "type": "msedge",
-      "request": "launch",
-      "file": "${workspaceFolder}/index.html"
-    },
-    {
-      "name": "Open Localhost 3000",
+      "name": "Launch Portfolio in Chrome (local server)",
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Launch Portfolio in Edge (local server)",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Launch Portfolio in Chrome (file://)",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/index.html"
     }
-  ]
+  ],
+  "compounds": []
 }
