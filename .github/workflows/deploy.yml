@@ -42,12 +42,13 @@ jobs:
             -not -path './.git/*' -print0 \
             | xargs -0 sed -i "s|{{SITE_URL}}|${SITE_URL%/}|g"
 
-      - name: Warn if the contact form is not configured
+      - name: Verify the contact form endpoint
         run: |
-          if grep -rq '{{FORMSPREE_ID}}' index.html script.js; then
-            echo "::warning title=Contact form not configured::index.html and script.js still contain {{FORMSPREE_ID}}. The form falls back to mailto: until a real Formspree endpoint is set."
+          if grep -q 'formsubmit.co' index.html && grep -q 'formsubmit.co' script.js; then
+            echo "Contact form posts to FormSubmit."
+            grep -o 'https://formsubmit.co/[^"]*' index.html | head -1
           else
-            echo "Contact form endpoint configured."
+            echo "::warning title=Contact form endpoint missing::index.html and script.js should both reference the FormSubmit endpoint. The form will hand off to mailto: instead."
           fi
 
       - name: Prepare deploy directory

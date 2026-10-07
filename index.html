@@ -652,9 +652,9 @@
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
                 <div class="project-links">
-                  <a href="https://github.com/Abhi-Jha-18/cyber-sentinel-ids" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="View Cyber Sentinel source code on GitHub (opens in a new tab)">
+                  <a href="https://github.com/Abhi-Jha-18/cyber-sentinel-ids" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="View the Cyber Sentinel monitoring dashboard on GitHub — the Python detection model is not published in this repository (opens in a new tab)">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    <span>View source</span>
+                    <span>IDS Dashboard repo</span>
                   </a>
                 </div>
               </div>
@@ -954,9 +954,19 @@
               Have an internship, project, or collaboration in mind? I'd love to hear from you.
             </p>
 
-            <!-- No-JS / offline fallback: the form still POSTs to Formspree without the script.
-                 The script upgrades this to an inline fetch() submit with validation. -->
-            <form id="contactForm" action="https://formspree.io/f/{{FORMSPREE_ID}}" method="POST" novalidate>
+            <!-- No-JS fallback: without the script the browser POSTs straight to
+                 FormSubmit, which forwards to abhijha.edu@gmail.com. The script
+                 upgrades this to an inline fetch() submit against the AJAX
+                 endpoint (see FORM_ENDPOINT in script.js) with validation and
+                 an honest success/error state.
+
+                 FormSubmit needs no account: the first submission emails
+                 abhijha.edu@gmail.com a one-time activation link. -->
+            <form id="contactForm" action="https://formsubmit.co/abhijha.edu@gmail.com" method="POST" novalidate>
+              <!-- FormSubmit configuration -->
+              <input type="hidden" name="_subject" value="New message from your portfolio">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
               <div class="form-group">
                 <label for="contactName" class="form-label">Your Name <span aria-hidden="true">*</span></label>
                 <input type="text" id="contactName" name="name" class="form-input" placeholder="e.g. Hiring Manager / Engineer"
@@ -980,10 +990,11 @@
                           required aria-required="true" aria-describedby="contactFormStatus"></textarea>
               </div>
 
-              <!-- Bot honeypot: hidden from humans, catchers-of-bots are asked not to fill it -->
+              <!-- Bot honeypot: hidden from humans. FormSubmit's own convention is
+                   a field literally named _honey, which it drops server-side too. -->
               <div class="hp-field" aria-hidden="true">
                 <label for="contactCompanyWebsite">Leave this field empty</label>
-                <input type="text" id="contactCompanyWebsite" name="_gotcha" tabindex="-1" autocomplete="off">
+                <input type="text" id="contactCompanyWebsite" name="_honey" tabindex="-1" autocomplete="off">
               </div>
 
               <p class="form-status" id="contactFormStatus" role="status" aria-live="polite"></p>

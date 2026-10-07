@@ -322,6 +322,13 @@ Status:   Seeking Cybersecurity / AI-ML Engineering Internship Roles 🎯`,
     },
     cybersentinel: {
       repo: 'https://github.com/Abhi-Jha-18/cyber-sentinel-ids',
+      repoLabel: 'View dashboard repo',
+      // The linked repository holds the monitoring dashboard, not the detection
+      // model. Say so up front so a reader doesn't open it expecting PyTorch.
+      repoNote: 'This repository contains the tactical monitoring dashboard (Node/Express) that '
+        + 'visualises live IDS state and ships with an attack simulator so the UI can be demoed '
+        + 'without a capture interface. The PyTorch LSTM/CNN model, the Scapy/Wireshark feature '
+        + 'pipeline and the CICIDS2017 evaluation are not published in this repository.',
       title: 'Cyber Sentinel: AI-Powered Network Intrusion Detection System',
       badge: 'Deep Learning Traffic Defense · NIDS',
       overview: 'A deep learning-powered Network Intrusion Detection System built for real-time packet classification, combining deep sequence modeling with custom features extracted from live Scapy and Wireshark captures.',
@@ -390,8 +397,17 @@ Status:   Seeking Cybersecurity / AI-ML Engineering Internship Roles 🎯`,
           ${d.tech.map(t => `<span class="skill-tag">${escapeHtml(t)}</span>`).join('')}
         </div>
 
+        ${d.repoNote ? `
+        <div class="repo-note" style="display: flex; gap: 0.75rem; align-items: flex-start; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent-cyber); padding: 1rem 1.15rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyber)" stroke-width="2" aria-hidden="true" focusable="false" style="flex-shrink: 0; margin-top: 0.15rem;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            <strong style="color: var(--text-main);">What's in the linked repository:</strong>
+            ${escapeHtml(d.repoNote)}
+          </p>
+        </div>` : ''}
+
         <div style="display: flex; gap: 1rem; justify-content: flex-end;">
-          <a href="${escapeHtml(d.repo)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">View on GitHub</a>
+          <a href="${escapeHtml(d.repo)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">${escapeHtml(d.repoLabel || 'View on GitHub')}</a>
           <button type="button" class="btn btn-primary btn-sm" id="modalDismissBtn">Close</button>
         </div>
       `;
@@ -608,17 +624,18 @@ Status:   Seeking Cybersecurity / AI-ML Engineering Internship Roles 🎯`,
   // 10b. CONTACT FORM — real submission
   //
   // Previously this called preventDefault(), waited 1.2s, and toasted
-  // "Message received!" without sending anything anywhere. It now POSTs to
-  // Formspree.
+  // "Message received!" without sending anything anywhere.
   //
-  // SETUP (one step): create a form at https://formspree.io, then replace
-  // FORM_ENDPOINT below and the form's action="" attribute in index.html with
-  // your own endpoint, e.g. https://formspree.io/f/abcdwxyz
+  // It now POSTs to FormSubmit, which needs no account: the first submission
+  // emails a one-time activation link to the address below. Until that link is
+  // clicked, FormSubmit accepts the request but does not forward it, and says
+  // so in its JSON response — we surface that honestly rather than claiming the
+  // message was delivered.
   //
-  // If the endpoint is still the placeholder, the form gracefully falls back
-  // to opening the visitor's mail client instead of pretending to succeed.
+  // index.html's <form action=""> points at the non-AJAX endpoint so the no-JS
+  // path still works; fetch() uses the /ajax/ endpoint to get JSON back.
   // -------------------------------------------------------------------------
-  const FORM_ENDPOINT = 'https://formspree.io/f/{{FORMSPREE_ID}}';
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/abhijha.edu@gmail.com';
   const FALLBACK_EMAIL = 'abhijha.edu@gmail.com';
 
   const formStatus = document.getElementById('contactFormStatus');
@@ -694,13 +711,6 @@ Status:   Seeking Cybersecurity / AI-ML Engineering Internship Roles 🎯`,
 
       const orig = submitBtn ? submitBtn.innerHTML : '';
 
-      if (FORM_ENDPOINT.includes('{{')) {
-        // Endpoint not configured yet: use the mailto fallback rather than
-        // claiming a message was delivered.
-        mailtoFallback();
-        return;
-      }
-
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = `
@@ -713,13 +723,33 @@ Status:   Seeking Cybersecurity / AI-ML Engineering Internship Roles 🎯`,
       }
 
       try {
-        const response = await fetch(contactForm.action, {
+        const response = await fetch(FORM_ENDPOINT, {
           method: 'POST',
           body: new FormData(contactForm),
           headers: { Accept: 'application/json' }
         });
 
+        // FormSubmit answers 200 even when the form is not yet activated, so the
+        // response body is the source of truth — not just the status code.
+        let payload = null;
+        try {
+          payload = await response.json();
+        } catch (parseErr) {
+          // Non-JSON reply; fall back to judging by status code alone
+        }
+
         if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+
+        if (payload && payload.success !== undefined && String(payload.success) !== 'true') {
+          // Typically the pending-activation case
+          setFormStatus(
+            'The form still needs its one-time confirmation before it can deliver. '
+            + `Please email ${FALLBACK_EMAIL} directly and I'll reply right away.`,
+            'info'
+          );
+          showToast('Form is awaiting one-time confirmation — email reaches me instantly');
+          return;
+        }
 
         contactForm.reset();
         setFormStatus(`Thanks, ${name} — your message is on its way. I'll reply soon.`, 'success');

@@ -78,26 +78,37 @@ repository root.
 
 ---
 
-## Contact form setup
+## Contact form
 
-The form POSTs to [Formspree](https://formspree.io) and shows a spinner, then reports the
-real outcome. It also has a hidden honeypot (`_gotcha`) to drop bots without telling them.
+The form POSTs to [FormSubmit](https://formsubmit.co), which requires **no account**. It shows
+a spinner, then reports the real outcome, and has a hidden honeypot (`_honey`) that drops bots
+without telling them.
 
-**To activate it** (two places, same value):
+**One-time activation.** The first submission triggers FormSubmit to email
+`abhijha.edu@gmail.com` a confirmation link. Until that link is clicked, FormSubmit accepts
+requests but does not forward them — and it says so in its response. The form detects that
+case and tells the visitor to email directly rather than claiming the message was delivered.
 
-1. `index.html` → `<form id="contactForm" action="https://formspree.io/f/{{FORMSPREE_ID}}">`
-2. `script.js` → `const FORM_ENDPOINT = 'https://formspree.io/f/{{FORMSPREE_ID}}'`
+**How it's wired:**
 
-Replace `{{FORMSPREE_ID}}` with your endpoint ID, e.g. `https://formspree.io/f/abcdwxyz`.
+| Path | Endpoint | Why |
+|---|---|---|
+| `<form action>` in `index.html` | `https://formsubmit.co/<email>` | No-JS fallback — normal POST, real confirmation page |
+| `FORM_ENDPOINT` in `script.js` | `https://formsubmit.co/ajax/<email>` | `fetch()` path — returns JSON so the UI can report the true result |
 
-**Until then it degrades safely** rather than silently swallowing messages:
+**To change the destination address**, update it in both places. Behaviour:
 
-| Situation | Behaviour |
+| Situation | What happens |
 |---|---|
-| Endpoint not configured | Opens the visitor's mail client, prefilled |
+| Delivered normally | Success message, form reset |
+| Awaiting one-time activation | Honest message + direct email address shown |
 | Network / server error | Opens the visitor's mail client, prefilled |
+| Honeypot (`_honey`) filled | Dropped silently, no request sent |
 | JavaScript disabled | Native POST to the `action` URL |
-| Honeypot filled | Dropped silently |
+
+> **Swapping providers:** anything that accepts a `POST` with `Accept: application/json` works.
+> Change the `action` and `FORM_ENDPOINT` values; the submit handler reads the response body's
+> `success` field when present and otherwise falls back to the HTTP status code.
 
 ---
 
