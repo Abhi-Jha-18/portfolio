@@ -237,7 +237,7 @@ Motto: Build. Learn. Secure. Innovate. 🚀`,
     contact: `Email:    abhijha.edu@gmail.com
 Mobile:   +91 8218778168
 GitHub:   github.com/Abhi-Jha-18 (@Abhi-Jha-18)
-LinkedIn: linkedin.com/in/abhi-jha-18 (@abhi-jha-18)
+LinkedIn: linkedin.com/in/abhi-jha18 (@abhi-jha18)
 Location: Agra, Uttar Pradesh, India
 Status:   Seeking Cybersecurity / AI-ML Engineering Internship Roles 🎯`,
 
